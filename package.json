@@ -1,31 +1,36 @@
 {
-    "main": "public/index.html",
-    "node-remote": "<local>",
-    "window": {
-        "title": "ZOMG! Netrunner Card Matcher",
-        "toolbar": false,
-        "frame": true,
-        "width": 1024,
-        "height": 540,
-        "position": "mouse",
-        "resizable": false
-    },
-    "webkit": {
-        "plugin": true
-    },
-
-    "name": "grndl-card-matcher",
-    "version": "0.2.0",
-    "repository":
-        { "type": "git",
-          "url" : "https://github.com/iic-ninjas/card-matcher-client"
-        },
-    "devDependencies": {
-      "grunt": "~0.4.2",
-      "grunt-contrib-watch": "~0.5.3",
-      "grunt-contrib-coffee": "~0.7.0",
-      "grunt-contrib-haml": "~0.1.1",
-      "grunt-contrib-imagemin": "~0.8.1",
-      "grunt-contrib-compass": "~0.9.1"
-    }
+  "main": "public/index.html",
+  "node-remote": "<local>",
+  "window": {
+    "title": "ZOMG! Netrunner Card Matcher",
+    "toolbar": false,
+    "frame": true,
+    "width": 1024,
+    "height": 540,
+    "position": "mouse",
+    "resizable": false
+  },
+  "webkit": {
+    "plugin": true
+  },
+  "name": "grndl-card-matcher",
+  "version": "0.2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iic-ninjas/card-matcher-client"
+  },
+  "devDependencies": {
+    "browserify": "^6.2.0",
+    "coffeeify": "^0.7.0",
+    "grunt": "~0.4.2",
+    "grunt-browserify": "^3.2.0",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-compass": "~0.9.1",
+    "grunt-contrib-haml": "~0.1.1",
+    "grunt-contrib-imagemin": "~0.8.1",
+    "grunt-contrib-jade": "^0.13.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "jade": "^1.7.0",
+    "jadeify": "^3.0.0"
+  }
 }

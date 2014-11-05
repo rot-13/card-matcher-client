@@ -10,22 +10,21 @@ module.exports = (grunt) ->
           sassDir: 'src/scss'
           cssDir: 'public/css'
 
-    coffee:
+    browserify:
       dist:
         options:
-          join: true
+          transform: ['coffeeify', 'jadeify']
         files:
-          'public/js/index.js': ['src/coffee/**/*.coffee']
+          'public/js/index.js': ['src/coffee/**/*.coffee', 'src/jade/**/*.jade']
 
-    haml:
-      dist:
-        files: [
-          expand: true
-          cwd: 'src/haml'
-          src: ['**/*.haml']
-          dest: 'public'
-          ext: '.html'
-        ]
+    # for templates not loaded from require(), mainly index.html which is generated from index.jade
+    jade:
+      compile:
+        options:
+          data:
+            debug: true
+        files:
+          "public/index.html": ["src/jade/index.jade"]
 
     imagemin:
       dynamic:
@@ -50,11 +49,13 @@ module.exports = (grunt) ->
         files: 'src/images/**'
         tasks: ['imagemin']
 
+  grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-compass')
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-haml')
   grunt.loadNpmTasks('grunt-contrib-imagemin')
   grunt.loadNpmTasks('grunt-contrib-watch')
+  grunt.loadNpmTasks('grunt-contrib-jade')
 
-  grunt.registerTask('compile', ['compass', 'coffee', 'haml', 'imagemin'])
+  grunt.registerTask('compile', ['compass', 'jade', 'browserify', 'imagemin'])
   grunt.registerTask('default', ['compile', 'watch'])
